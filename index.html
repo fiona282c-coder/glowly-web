@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Glowly - AI beauty website demo" />
+  <title>Glowly — Your Beauty, Powered by AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="brand" data-go="home" aria-label="回首頁">Glowly</button>
+      <nav class="desktop-nav">
+        <button data-go="home">首頁</button>
+        <button data-go="upload">AI 分析</button>
+        <button data-go="styles">妝容風格</button>
+        <button data-go="products">產品推薦</button>
+        <button data-go="saved">收藏</button>
+      </nav>
+      <button class="ghost-btn" data-go="profile">我的</button>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section class="page active" id="home">
+        <div class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">AI BEAUTY STYLIST</span>
+            <h1>Find your look.<br><span>Own your moment.</span></h1>
+            <p>Glowly 結合臉部特徵、膚色、膚況與你今天的場合，幫你找到適合的妝容，教你怎麼畫，再推薦真正需要的產品。</p>
+            <div class="hero-actions">
+              <button class="primary-btn" data-go="upload">立即開始分析</button>
+              <button class="secondary-btn" data-go="styles">先看妝容風格</button>
+            </div>
+            <div class="trust-row">
+              <span>AI 個人化推薦</span><span>Step-by-step 妝教</span><span>拍攝 / 出片指導</span>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div class="portrait-placeholder">
+              <div class="glow-orb orb-a"></div>
+              <div class="glow-orb orb-b"></div>
+              <div class="face-card">
+                <div class="face-circle">G</div>
+                <p>Today's Look</p>
+                <strong>Soft Korean Glow</strong>
+                <span>Natural · Rosy · Fresh</span>
+              </div>
+            </div>
+            <div class="floating-chip chip-1">Warm undertone</div>
+            <div class="floating-chip chip-2">Combination skin</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <div class="section-heading">
+            <div><span class="eyebrow">HOW IT WORKS</span><h2>從「不知道畫什麼」到完成你的 Look</h2></div>
+          </div>
+          <div class="steps-grid">
+            <article class="step-card"><span>01</span><h3>Analyze</h3><p>上傳自拍，取得膚質、膚色與臉部特徵分析。</p></article>
+            <article class="step-card"><span>02</span><h3>Choose</h3><p>選擇今天的場合與想要呈現的妝容風格。</p></article>
+            <article class="step-card"><span>03</span><h3>Create</h3><p>取得個人化妝容建議與一步一步的妝教。</p></article>
+            <article class="step-card"><span>04</span><h3>Share</h3><p>獲得打光、角度與短影音出片腳本建議。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- UPLOAD -->
+      <section class="page" id="upload">
+        <div class="page-head"><span class="eyebrow">STEP 1</span><h2>上傳你的自拍</h2><p>AI 將分析你的膚色、膚況與臉部特徵。此 Demo 使用模擬分析結果。</p></div>
+        <div class="upload-layout">
+          <div class="upload-card">
+            <label for="selfieInput" class="upload-zone" id="uploadZone">
+              <img id="previewImage" alt="自拍預覽" hidden>
+              <div id="uploadPlaceholder">
+                <div class="camera-icon">◎</div>
+                <strong>點擊上傳照片</strong>
+                <span>JPG / PNG，建議正面自然光自拍</span>
+              </div>
+            </label>
+            <input id="selfieInput" type="file" accept="image/*" hidden>
+            <button id="analyzeBtn" class="primary-btn full" disabled>開始 AI 分析</button>
+          </div>
+          <aside class="tip-card">
+            <h3>拍攝小技巧</h3>
+            <ul><li>使用自然光，避免過強濾鏡</li><li>正面面向鏡頭，不要遮住眉眼</li><li>盡量卸除厚重底妝</li><li>保持照片清晰</li></ul>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ANALYSIS -->
+      <section class="page" id="analysis">
+        <div class="page-head"><span class="eyebrow">YOUR RESULT</span><h2>你的膚質分析結果</h2><p>以下資料為展示版模擬結果，可之後串接真正的 AI Vision API。</p></div>
+        <div class="analysis-grid">
+          <article class="analysis-summary">
+            <div class="result-badge">混合性肌膚</div>
+            <h3>你的肌膚偏向 T 字部位出油、兩頰較乾</h3>
+            <p>建議選擇輕薄底妝，並在乾燥區域做好保濕。你的暖中性膚色適合蜜桃、玫瑰棕與柔和珊瑚色。</p>
+            <div class="mini-tags"><span>Warm Neutral</span><span>Oval Face</span><span>Almond Eyes</span></div>
+          </article>
+          <article class="metrics-card">
+            <div class="metric"><div><span>油脂分泌</span><b>中等</b></div><div class="bar"><i style="width:58%"></i></div></div>
+            <div class="metric"><div><span>毛孔狀況</span><b>中等</b></div><div class="bar"><i style="width:52%"></i></div></div>
+            <div class="metric"><div><span>保濕度</span><b>偏低</b></div><div class="bar"><i style="width:38%"></i></div></div>
+            <div class="metric"><div><span>敏感度</span><b>偏低</b></div><div class="bar"><i style="width:30%"></i></div></div>
+          </article>
+        </div>
+        <div class="center-action"><button class="primary-btn" data-go="styles">下一步：選擇妝容風格</button></div>
+      </section>
+
+      <!-- STYLES -->
+      <section class="page" id="styles">
+        <div class="page-head"><span class="eyebrow">STEP 2</span><h2>選擇你的妝容風格</h2><p>選一個你今天想呈現的 vibe，我們會依照你的分析結果做個人化調整。</p></div>
+        <div class="style-grid" id="styleGrid"></div>
+        <div class="center-action"><button id="createLookBtn" class="primary-btn" disabled>建立我的 Look</button></div>
+      </section>
+
+      <!-- RECOMMENDATION -->
+      <section class="page" id="recommendation">
+        <div class="recommend-hero">
+          <div><span class="eyebrow">YOUR PERSONAL LOOK</span><h2 id="lookTitle">Soft Korean Glow</h2><p id="lookReason">根據你的暖中性膚色與杏仁眼型，我們調整了色彩與眼妝比例。</p></div>
+          <div class="look-preview"><span>AI LOOK</span><strong id="lookBadge">韓系清透</strong></div>
+        </div>
+        <div class="recommend-grid" id="recommendGrid"></div>
+        <div class="dual-actions"><button class="secondary-btn" data-go="tutorial">學會這個妝</button><button class="primary-btn" data-go="products">查看推薦產品</button></div>
+      </section>
+
+      <!-- TUTORIAL -->
+      <section class="page" id="tutorial">
+        <div class="page-head"><span class="eyebrow">LEARN THIS LOOK</span><h2>一步一步完成妝容</h2><p>你可以照著每一步完成妝容，最後再進入拍攝 / 出片指導。</p></div>
+        <div class="tutorial-wrap">
+          <div class="tutorial-progress"><span id="tutorialStepLabel">Step 1 / 6</span><div class="bar"><i id="tutorialProgress" style="width:16.6%"></i></div></div>
+          <article class="tutorial-card">
+            <div class="tutorial-visual" id="tutorialVisual">BASE</div>
+            <div class="tutorial-copy"><span class="eyebrow" id="tutorialCategory">BASE MAKEUP</span><h3 id="tutorialTitle">薄透底妝</h3><p id="tutorialText">從臉部中央向外薄薄推開粉底，T 字部位少量疊加即可。</p><div class="product-pill" id="tutorialProduct">Recommended: Lightweight Foundation</div></div>
+          </article>
+          <div class="dual-actions"><button id="prevTutorial" class="secondary-btn">上一步</button><button id="nextTutorial" class="primary-btn">下一步</button></div>
+        </div>
+      </section>
+
+      <!-- SHOOT -->
+      <section class="page" id="shoot">
+        <div class="page-head"><span class="eyebrow">CONTENT COACH</span><h2>準備出片 📸</h2><p>Glowly 不只教你畫，也教你怎麼把完成的 Look 拍得更好看。</p></div>
+        <div class="shoot-grid">
+          <article class="shoot-card"><span>01</span><h3>Lighting</h3><p>面向窗戶約 45°，讓光線從側前方落在臉上。</p></article>
+          <article class="shoot-card"><span>02</span><h3>Camera</h3><p>手機略高於眼睛，鏡頭距離約一個手臂長。</p></article>
+          <article class="shoot-card"><span>03</span><h3>Pose</h3><p>臉微轉 15°，下巴輕收，強調眼妝與腮紅。</p></article>
+          <article class="shoot-card"><span>04</span><h3>15s Reel</h3><p>Before → Eyes → Blush/Lips → Final Reveal。</p></article>
+        </div>
+        <div class="center-action"><button class="primary-btn" data-go="saved">收藏這個 Look</button></div>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section class="page" id="products">
+        <div class="page-head"><span class="eyebrow">SHOP THE LOOK</span><h2>推薦產品</h2><p>Demo 以範例商品呈現，之後可串接品牌合作、電商連結或自有資料庫。</p></div>
+        <div class="product-grid">
+          <article class="product-card"><div class="product-art">01</div><span>BASE</span><h3>Glow Fit Foundation</h3><p>輕薄自然光澤，適合混合性肌膚。</p><strong>NT$ 1,280</strong><button>查看商品</button></article>
+          <article class="product-card"><div class="product-art">02</div><span>BLUSH</span><h3>Peach Veil Blush</h3><p>蜜桃玫瑰色，適合暖中性膚色。</p><strong>NT$ 890</strong><button>查看商品</button></article>
+          <article class="product-card"><div class="product-art">03</div><span>LIP</span><h3>Soft Rose Lip Tint</h3><p>低飽和玫瑰色，打造自然乾淨妝感。</p><strong>NT$ 720</strong><button>查看商品</button></article>
+        </div>
+      </section>
+
+      <!-- SAVED -->
+      <section class="page" id="saved">
+        <div class="page-head"><span class="eyebrow">MY LOOKBOOK</span><h2>我的收藏 / 妝容靈感</h2><p>把喜歡的妝容存成你的個人 Beauty Lookbook。</p></div>
+        <div class="saved-grid">
+          <article class="saved-card"><div class="saved-art a">K</div><h3>韓系清透</h3><p>Natural · Rosy · Fresh</p></article>
+          <article class="saved-card"><div class="saved-art b">J</div><h3>日系甜美</h3><p>Soft · Cute · Bright</p></article>
+          <article class="saved-card"><div class="saved-art c">E</div><h3>高級裸妝</h3><p>Elegant · Neutral · Chic</p></article>
+        </div>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="page" id="profile">
+        <div class="page-head"><span class="eyebrow">PROFILE</span><h2>我的 Glowly</h2><p>管理你的分析結果、收藏與偏好設定。</p></div>
+        <div class="profile-card">
+          <div class="avatar">G</div><div><h3>Glowly User</h3><p>Warm Neutral · Combination Skin</p></div>
+        </div>
+        <div class="settings-list">
+          <button data-go="analysis">我的分析紀錄 <span>›</span></button>
+          <button data-go="saved">我的收藏 <span>›</span></button>
+          <button>通知設定 <span>›</span></button>
+          <button>語言 / Language <span>›</span></button>
+          <button>關於 Glowly <span>›</span></button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="mobile-nav">
+      <button data-go="home">首頁</button>
+      <button data-go="styles">探索</button>
+      <button class="nav-main" data-go="upload">＋</button>
+      <button data-go="saved">收藏</button>
+      <button data-go="profile">我的</button>
+    </nav>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
